@@ -116,7 +116,8 @@ body{
 }
 .housePhoto{
 	max-height: 118px;
-	max-width: 250px;
+	min-height: 110px;
+	max-width: 50%;
 }
 .houseText{
 	padding: 6px;
@@ -126,7 +127,7 @@ body{
 .accounts{
 	
 }
-.buttonContainer{
+.btnCont{
 	display: flex;
 	justify-content: center;
 	background-color: #a0a0a0;

@@ -11,6 +11,7 @@ $(function(){
 		var house_price = $("#house_price").val();
 		var house_street = $("#house_street").val();
 		var house_photo = $("#house_photo").val();
+		var registor_address = $("#registor_address").val();
 		var divAddress = document.getElementById("accounts");
 		var selectedAcc = divAddress.options[divAddress.selectedIndex].value;
 
@@ -23,6 +24,8 @@ $(function(){
 		var divstreet = document.createElement("div");
 		var imgphoto = document.createElement("img");
 		var divAddress = document.createElement("div");
+		var divRegistorAddress = document.createElement("div");
+
 
 
 		divnum.classList.add("houseText");
@@ -30,12 +33,16 @@ $(function(){
 		divstreet.classList.add("houseText");
 		imgphoto.classList.add("housePhoto");
 		divAddress.classList.add("houseText");
-		btnContain.classList.add("buttonContainer");
+		divRegistorAddress.classList.add("houseText");
+
+		btnContain.classList.add("btnCont");
 
 		console.log(selectedAcc);
 		divnum.innerHTML = "Numeris: "+ house_num;
 		divprice.innerHTML = "Kaina: "+ house_price +" ETH";
 		divstreet.innerHTML = "Gatvė: " + house_street;
+		divRegistorAddress.innerHTML = "Registratorius: "+ registor_address;
+
 		imgphoto.setAttribute("src", house_photo);
 		var adress =document.createElement("span");
 		adress.innerHTML = "Adresas:";
@@ -49,6 +56,8 @@ $(function(){
 		div.append(divstreet);
 		div.append(adress);
 		div.append(divAddress);
+		div.append(divRegistorAddress);
+
 		var btn = document.createElement("div");
 		btn.innerHTML = "Pirkti";
 		btn.classList.add("btn");
@@ -61,6 +70,7 @@ $(function(){
 		divMaster.append(btnContain);
 
 	    divElem.append(divMaster);
+	    $("#pop").css("visibility", "hidden");
 	});
 
 });

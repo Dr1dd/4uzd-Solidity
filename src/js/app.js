@@ -50,27 +50,77 @@ App = {
           opt.innerHTML = acc;
           document.getElementById("accounts").appendChild(opt);
 
-   App.contracts.Housing.deployed().then(function(instance) {
- 
-   })
 
   },
     buyHouse: function(elem){
       $(function(){
-       var firstAcc =  $(elem).parent().parent().children(':first-child').children(':last-child').text();
+       var firstAcc =  $(elem).parent().parent().children(':first-child').children().eq("-2").text();
        var price =  $(elem).parent().parent().children(':first-child').children().eq("2").text();
+       var house_number =  $(elem).parent().parent().children(':first-child').children().eq("1").text();
+       var registor =  $(elem).parent().parent().children(':first-child').children().eq("-1").text();
+      
+       house_number = house_number.replace(/Numeris: /, "");
+       registor = registor.replace(/Registratorius: /, "");
        price = price.replace(/Kaina: /, "");
        price = price.substr(0, price.length-4);
 
         var acc =web3.eth.accounts;
         acc = acc[0];
-        web3.eth.sendTransaction({to:firstAcc, from:acc, value:web3.toWei(price, "ether")}, function(err, transactionHash) {
-           if (!err)
-          console.log(transactionHash); // "0x7f9fade1c0d57a7af66ab4ead7c2eb7b11a91385"
-          });
-      })
-    }
+          App.contracts.Housing.deployed().then(function(data) {
+             var instance = data;
+             console.log("1");
+             return instance.setBuyer(acc);
+           });
+          App.contracts.Housing.deployed().then(function(data2) {
+           var instance1 = data2;
+             console.log("2");
 
+            return instance1.setRegistor(registor);
+           });
+          App.contracts.Housing.deployed().then(function(data3){
+            var ownershipInstance = data3;
+             console.log("3");
+
+            return ownershipInstance.sendOwnershipInquiry(house_number);
+           });
+           // App.contracts.Housing.deployed().then(function(data4){
+           //  var send1 = data4;     
+           //   console.log("4");
+
+           //       return send1.sendPrice(parseInt(house_number), parseInt(price), 1);                  
+           // });
+           // App.contracts.Housing.deployed().then(function(data5) {
+           //  var send2 =data5;
+           //   console.log("5");
+
+           //   return send2.sendPrice(house_number, 0.5 , 2);
+           // });
+           //  App.contracts.Housing.deployed().then(function(data6){
+           //  var send3 =data6;
+           //   console.log("6");
+
+           //    return send3.sendSafepay(house_number);
+           // });
+           //   App.contracts.Housing.deployed().then(function(data7){
+           //   var send4 =data7;
+           //   return send4.sendInvoice(house_number, "2019");
+           // });
+           //   App.contracts.Housing.deployed().then(function(data8) {   
+           //   var send5 =data8;
+           //   return send5.delivery(house_number, "2019");
+           // });
+        });
+
+      
+      
+    },
+    sendPrice: function(){
+      App.contracts.Housing.deployed().then(function(data4){
+            var send1 = data4;     
+             console.log("4");
+       return send1.sendPrice(parseInt(house_number), parseInt(price), 1);                  
+     });
+    }
 
   
 };
