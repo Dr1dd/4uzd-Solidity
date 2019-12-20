@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>House Registry</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+       <div class ="main">
+        <div class ="nav nav-nonfixed">
+        </div>
+        <div class = "nav">
+          <button class ="btn" id="addHouse"> Pridėti </button>
+          <div class = "accounts">
+            <span> Sąskaita: </span>
+            <select id="accounts" name="accounts">
+              </select>
+          </div>
+          <button class ="btn" onclick="App.setUsers()"> nustatyti userius</button>
+          <button class ="btn" id="sendPrice"> nustatyti kainą </button>
+          <button class ="btn" id="safePay"> safePay </button>
+          <button class ="btn" id="sendInvoice"> siųsti faktūrą </button>
+          <button class ="btn" id="deliver"> pristatyti </button>
+
+
+        </div>
+        <div class = "housesContainer" id ="allHouses">
+        </div>
+
+
+        <div class ="popup" id ="pop">
+          <div class ="closeBtn">
+             <img src ="https://image.flaticon.com/icons/png/512/106/106830.png " class = "closeImg" id ="closepopup">
+          </div>
+          <div class ="popupContent">
+            <input type="number" class ="Input" placeholder="Namo numeris" id ="house_num">
+            <input type="text" class ="Input" placeholder="Namo kaina (etheriais)" id ="house_price">
+            <input type="text" class ="Input" placeholder="Namo gatvė" id ="house_street">
+            <input type="text" class ="Input" placeholder="Registratoriaus adresas" id ="registor_address">
+            <input type="text" class ="Input" placeholder="Nuotrauka" id ="house_photo">
+
+          </div>
+          <div class ="buttonContainer">
+            <button class ="cnfrmbtn" id="confirmAddHouse"> Pridėti </button>
+          </div>
+        </div>
+      </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/front.js"></script>
+    <script src="js/app.js"></script>
+
+  </body>
+</html>
