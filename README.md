@@ -1,48 +1,47 @@
+# 4-oji užduotis: išmaniosios sutarties ir decentralizuotos aplikacijos kūrimas
 
-# Election - DAPP Tutorial
-Build your first decentralized application, or Dapp, on the Ethereum Network with this tutorial!
+## Kaip įsirašyi ir pasileisti:
+Jums prireiks: ```Truffle```, ```Ganache```, ```Metamask```.
+ 
+ Klonuokite repozitoriją.
+ 
+Įsirašykite ``` node.js```
 
-Full Free Video Tutorial:**
-https://youtu.be/3681ZYbDSSk
+Įveskite ```npm run dev``` į consolę.
 
-## 2019 Updated Code
-https://github.com/dappuniversity/election/tree/2019_update
+``` npm run dev``` iššaukia scriptą, kuris paleidžia ```lite-server``` web serverį.
 
-Follow the steps below to download, install, and run this project.
+## 1. Verslo modelis:
 
-## Dependencies
-Install these prerequisites to follow along with the tutorial. See free video tutorial or a full explanation of each prerequisite.
-- NPM: https://nodejs.org
-- Truffle: https://github.com/trufflesuite/truffle
-- Ganache: http://truffleframework.com/ganache/
-- Metamask: https://metamask.io/
+Verslo modelyje dalyvauja tokios šalys: ``` Pirkėjas ```, ``` Pardavėjas ```, ``` Registratorius ```
 
+Planas yra toks - Pardavėjas pardavinėja namus, o pirkėjas perka namą. Nusipirkus namą, jis turi būti perregistruojamas ant kito asmens.
 
-## Step 1. Clone the project
-`git clone https://github.com/dappuniversity/election`
+Pirkėjas siunčia pardavėjui užklausą namui pirkti. Pardavėjas grąžina atsakymą su nurodyta namo kaina. Pirkėjas patvirtina transakciją ir laukia 
 
-## Step 2. Install dependencies
-```
-$ cd election
-$ npm install
-```
-## Step 3. Start Ganache
-Open the Ganache GUI client that you downloaded and installed. This will start your local blockchain instance. See free video tutorial for full explanation.
+savo namo dokumentų. Tuo tarpu registrų centras gauna žinutę, jog reikia perrašyti namą kitam asmeniui. Dokumentų registruotojas perdavęs 
 
+namo dokumentus naujam savininkui pažymi, jog viskas įvyko sklandžiai. Po patvirtinimo etheriai yra nusiunčiami registruotojui ir buvusiam savininkui.
 
-## Step 4. Compile & Deploy Election Smart Contract
-`$ truffle migrate --reset`
-You must migrate the election smart contract each time your restart ganache.
+## 2. Realizuokite pirmąjame žingsnyje aprašytą verslo logiką išmanioje sutartyje Solidyti kalboje.
+```contracts/Housing.sol``` faile esantis kodas.
 
-## Step 5. Configure Metamask
-See free video tutorial for full explanation of these steps:
-- Unlock Metamask
-- Connect metamask to your local Etherum blockchain provided by Ganache.
-- Import an account provided by ganache.
+## 3. Ištestuokite išmaniosios sutarties veikimą Ethereum lokaliame tinkle ir Ethereum testiniame tinkle
 
-## Step 6. Run the Front End Application
-`$ npm run dev`
-Visit this URL in your browser: http://localhost:3000
+Testuojant nebuvo rašomas atskiras kodas, bet tiesiog panaudojamas tas pats. 
 
-If you get stuck, please reference the free video tutorial.
+![img](https://imgur.com/3wlridY.png)
 
+## 4. Etherscan log
+
+Etherscan log'ų pasiekti nepavyko, bet pavyko gauti informaciją iš infura tinklalapio:
+
+![img](https://imgur.com/1qPdC4n.png)
+
+## 5. Sukurkite decentralizuotos aplikacijos Front-Endą (tinklapį arba mobiliąją aplikaciją), kuri įgalintų bendravimą su išmaniąja sutartimi.
+
+Front end:
+
+![img](https://imgur.com/u0LsOwl.png)
+
+![img2](https://imgur.com/W7rRkMl.png)
